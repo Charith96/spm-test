@@ -50,3 +50,31 @@ router.get('/room/',(req, res) => {
 });
 
 /****************************************************************/
+
+
+
+/*********************      Update Data     *********************/
+
+http://localhost:8070/room/update/ _id
+
+router.put('/room/update/:id',(req, res) => {
+
+    Room.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set: req.body
+        },
+        (err, room) => {
+            if(err) {
+                return res.status(400).json({
+                    error: err
+                });
+            }
+            return res.status(200).json({
+                success: "Update successful"
+            });
+        }
+    );
+});
+
+/****************************************************************/
