@@ -82,7 +82,7 @@ router.put('/accommodation/update/:id', (req, res) => {
 
 http://localhost:8070/accommodation/delete/_id
 
-router.delete('/accommodation/delete/:id',(req, res) => {
+router.delete('/accommodation/delete/:id', (req, res) => {
 
     Accommodation.findByIdAndDelete(req.params.id)
         .exec((err, deleteAccommodation) => {
@@ -103,18 +103,17 @@ router.delete('/accommodation/delete/:id',(req, res) => {
 
 /*********************     Search by Id     *******************/
 
-router.get('accommodation/:id', (req, res) => {
+router.get('/accommodation/:id',(req, res) => {
 
     let accNo = req.params.id;
 
-    Accommodation.findById(accNo, (err, accommodation) => {
+    Accommodation.findById(accNo,(err,accommodation) => {
 
         if (err) {
-            return res.status(400), json({
+            return res.status(400).json({
                 success: false, err
             });
         }
-
         return res.status(200).json({
             success: true,
             accommodation
