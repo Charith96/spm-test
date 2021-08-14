@@ -86,7 +86,7 @@ router.delete('/accommodation/delete/:id', (req, res) => {
 
     Accommodation.findByIdAndDelete(req.params.id)
         .exec((err, deleteAccommodation) => {
-            if (err) {
+            if (err){
                 return res.status(400).json({
                     message: "Delete Unsuccess", err
                 });
