@@ -78,3 +78,24 @@ router.put('/room/update/:id',(req, res) => {
 });
 
 /****************************************************************/
+
+
+
+/*********************     Delete Data     **********************/
+
+router.delete('/room/delete/:id',(req, res) => {
+
+    Room.findByIdAndDelete(req.params.id)
+        .exec((err, deleteRoom) => {
+            if(err){
+                return res.status(400).json({
+                    message: "Delete unsucess !", err
+                });
+            }
+            return res.status(200).json({
+                message: "Delete success", deleteRoom
+            });
+        });
+});
+
+/****************************************************************/
