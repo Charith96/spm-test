@@ -4,20 +4,20 @@ const accommodationScheema = new mongoose.Schema({
 
     accommodationType:{
         type: String,
-        require: true,
+        require: true
     },
     name:{
         type: String,
-        require:true,
+        require:true
     },
     noOfRomm:{
         type: Number,
-        require:true,
-    },
-    image:{
-        type:String,
         require:true
     },
+    mobile:{
+        type: Number,
+        require:true
+    }
 },{
     timestamps: true,
 })
